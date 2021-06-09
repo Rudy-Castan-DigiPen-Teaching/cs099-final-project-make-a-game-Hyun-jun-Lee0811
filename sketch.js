@@ -35,26 +35,46 @@ var box2 =
 let CurrentScreen = MAIN_MENU
 let Screen_1 = GAME_SCREEN
 
+//MAIN_MENU
 let img1
 let img2
 let img3
 let img4
 let img5
+let img6
+let img7
+let img8
+let img9
+let img10
+
+let backgroundMusic
+
+function preload()
+{
+    backgroundMusic = loadSound('media/background.wav')    
+}
 
 function setup()
 {
     createCanvas( 800, 800 );
-    img1 = loadImage('left_arm.png')
-    img2 = loadImage('right_arm.png')
-    img3 = loadImage('mouth.png')
-    img4 = loadImage('eye.png')
-    img5 = loadImage('nose.png')
+    img1 = loadImage('image/gear.png')
+    img2 = loadImage('image/clip.png')
+    img3 = loadImage('image/mouth.png')
+    img4 = loadImage('image/eye.png')
+    img5 = loadImage('image/nose.png')
+    img6 = loadImage('image/hand.png')
+    img7 = loadImage('image/hand1.png')
+    img8 = loadImage('image/hand2.png')
+    img9 = loadImage('image/stain.png')
+    img10 = loadImage('image/stain1.png')
+
+    backgroundMusic.loop()
 }
 
 
 function draw()
 {
-    background( 220 );
+    background( '#483D8B' );
 
     switch(CurrentScreen)
     {
@@ -82,6 +102,60 @@ function draw()
             let emotion1 = DetermineEmotion(face1)
             DrawFaceWithEmotion(face1, emotion1)
             
+            push()
+            noStroke()
+            fill('red')
+            quad(277, 610, 525, 610, 690, 800, 106, 800)
+            pop()
+
+            push()
+            noStroke()
+            fill('#483D8B')
+            quad(219, 610, 278, 610, 106, 800, 0, 703)
+            triangle(0, 703, 106, 800, 0, height)
+            pop()
+
+            push()
+            noStroke()
+            fill('#483D8B')
+            triangle(700, 800, 587, 610, 700, 660)
+            quad(587, 610, 525, 610, 690, 800, 700, 800)
+            pop()
+
+            push()
+            noStroke()
+            fill('#483D8B')
+            quad(220, 140, 585, 140, 698, 0, 103, 0)
+            pop()
+
+            textSize(30)
+            textStyle(BOLD)
+            stroke('black')
+            text('Rescue the princess', 260, 700)
+            text('from the devil', 300, 750)
+
+            push()
+            translate(-30, 0)
+            fill(0, 0, 0, 100)
+            noStroke()
+            ellipse(400, 800, 250, 300)
+            translate(0,-10)
+            triangle(568, 670, 550, 687, 590, 687)
+            rect(551, 687, 38, 70)
+            rect(540, 757, 60, 10)
+            rect(565, 767, 10, 8.3)
+            circle(570, 800, 50)
+            pop()
+
+            console.log(mouseX, mouseY)
+
+            image(img6, 10, 630, 130, 130)
+            image(img7, 595, 600, 100, 100)
+            image(img8, 320, 580, 70, 70)
+            image(img9, 210, 700, 70, 70)
+            image(img10, 470, 630, 50, 50)
+            image(img1, 700, 703, 100,)
+            image(img2, 701, 602, 100,)
         }
         break
         case GAME_SCREEN:
@@ -94,6 +168,7 @@ function draw()
 function start_button()
 {
     push()
+    fill('red')
     const left = door.button_left
     const right = door.button_left + door.button_width + 200
     const top = door.button_top 
@@ -108,18 +183,16 @@ function start_button()
     {
         if(mouseIsPressed)
         {
-            fill_color = 0
+            fill_color = 150
         }
         else
         {
-            fill_color = 100
+            fill_color = 150
             
         }
     }
 
     fill(fill_color)
-
-    
     translate(door.button_left, door.button_top )
     rect(0, 0, door.button_width+200, door.button_height)
     pop()
@@ -143,7 +216,7 @@ function box_1()
     {
         if(mouseIsPressed)
         {
-            fill_colors = 0
+            fill_colors = 50
         }
         else
         {
@@ -227,13 +300,17 @@ function IsMouseOnFace(face)
     switch (emotion)
     {
       case SHOCKED:
-          text()
-
+          stroke('black')
+          textSize(20)
+          text('Hello',-200, -200)
         break;
       case ANGRY:
-
-        image(img1, -265, -200, 100,200)
-        image(img2, 172, -200, 100,200)
+        push()
+        noStroke()
+        fill('#808080')
+        rect(163, -30, -320, -200)
+        rect(163, 185, -320, -200)
+        pop()
         image(img3, -45, 50, 100,100)
         image(img4, -45, -200, 100,100)
         image(img5, -45, -80, 100,100)
