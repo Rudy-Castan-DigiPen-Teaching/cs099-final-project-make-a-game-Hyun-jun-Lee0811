@@ -49,6 +49,9 @@ let img10
 
 let backgroundMusic
 
+const frame = 60
+let count = 0
+
 function preload()
 {
     backgroundMusic = loadSound('media/background.wav')    
@@ -69,6 +72,7 @@ function setup()
     img10 = loadImage('image/stain1.png')
 
     backgroundMusic.loop()
+    eyes = new Eye(500, height/2)
 }
 
 
@@ -76,6 +80,8 @@ function draw()
 {
     background( '#483D8B' );
 
+
+    
     switch(CurrentScreen)
     {
         case MAIN_MENU:
@@ -108,26 +114,6 @@ function draw()
             quad(277, 610, 525, 610, 690, 800, 106, 800)
             pop()
 
-            push()
-            noStroke()
-            fill('#483D8B')
-            quad(219, 610, 278, 610, 106, 800, 0, 703)
-            triangle(0, 703, 106, 800, 0, height)
-            pop()
-
-            push()
-            noStroke()
-            fill('#483D8B')
-            triangle(700, 800, 587, 610, 700, 660)
-            quad(587, 610, 525, 610, 690, 800, 700, 800)
-            pop()
-
-            push()
-            noStroke()
-            fill('#483D8B')
-            quad(220, 140, 585, 140, 698, 0, 103, 0)
-            pop()
-
             textSize(30)
             textStyle(BOLD)
             stroke('black')
@@ -147,8 +133,6 @@ function draw()
             circle(570, 800, 50)
             pop()
 
-            console.log(mouseX, mouseY)
-
             image(img6, 10, 630, 130, 130)
             image(img7, 595, 600, 100, 100)
             image(img8, 320, 580, 70, 70)
@@ -160,7 +144,18 @@ function draw()
         break
         case GAME_SCREEN:
         {
-            circle(width/2,height/2, 100)
+            background('#FFEFD5')
+            push()
+            fill(0)
+            ellipse(width/2,height/2, 650, 300)
+            pop()
+            ellipse(width/2, height/2, 630, 290)
+            pop()
+
+            let p = float( count % frame)/frame
+            count += 1
+            eyes.draw()
+            eyes.update(p*PI)
         }
     }
 }
