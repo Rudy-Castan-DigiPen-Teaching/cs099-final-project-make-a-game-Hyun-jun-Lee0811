@@ -52,6 +52,11 @@ let backgroundMusic
 const frame = 60
 let count = 0
 
+let E =[]
+const M = 100
+
+let tear = 600
+
 function preload()
 {
     backgroundMusic = loadSound('media/background.wav')    
@@ -73,6 +78,11 @@ function setup()
 
     backgroundMusic.loop()
     eyes = new Eye(500, height/2)
+
+    for(let i = 0; i < M; ++i)
+    {
+        E.push(new particle())
+    }
 }
 
 
@@ -156,9 +166,34 @@ function draw()
             count += 1
             eyes.draw()
             eyes.update(p*PI)
+
+            for(let particle of E)
+            {
+                particle.update()
+                particle.draw()
+            }
+        
+            for(let i = E.length - 1; i >= 0; --i )
+            {
+                
+                let particle = E[i]
+                if(particle.position.x > width || particle.position.x <0 || 
+                    particle.position.y > height || particle.position.y < 0)
+                {
+                    E.splice(i, 20)
+                }
+            }
+
+            push()
+            noStroke()
+            fill('skyblue')
+            ellipse(500, tear, 50, 150)
+            tear = 600 + 5*cos(frameCount/15)
+            pop()
         }
     }
 }
+
 
 function start_button()
 {
@@ -267,6 +302,11 @@ function mousePressed()
                 CurrentScreen = GAME_SCREEN
             break
         }
+    }
+
+    for(let i = 0; i < M; ++i)
+    {
+        E.push(new particle(width/2+90, height/2+130))
     }
 }
 
