@@ -32,8 +32,18 @@ var box2 =
     mouseIsOver : false
 }
 
+var next =
+{
+    button_left : 610,
+    button_top : 700,
+    button_width : 150,
+    button_height : 60,
+    mouseIsOver : false
+}
+
 let CurrentScreen = MAIN_MENU
-let Screen_1 = GAME_SCREEN
+let Screen_0 = GAME_SCREEN
+let Screen_1 = GAME_SCREEN_1
 
 //MAIN_MENU
 let img1
@@ -55,6 +65,7 @@ let count = 0
 let E =[]
 const M = 100
 
+//SCREEN_0
 let tear = 600
 
 function preload()
@@ -90,8 +101,6 @@ function draw()
 {
     background( '#483D8B' );
 
-
-    
     switch(CurrentScreen)
     {
         case MAIN_MENU:
@@ -190,7 +199,28 @@ function draw()
             ellipse(500, tear, 50, 150)
             tear = 600 + 5*cos(frameCount/15)
             pop()
+
+            textStyle(ITALIC)
+            textSize(50)
+            text('The princess is crying!', 140, 100)
+            text('Come on rescue!', 200, 160)
+
+            next_button()
+            
+            push()
+            textStyle(BOLD)
+            text('NEXT', 620, 750)
+            pop()
         }
+        break
+    }
+    switch(Screen_0)
+    {
+        case GAME_SCREEN_1:
+            {
+                background(0)
+            }
+            break
     }
 }
 
@@ -292,6 +322,39 @@ function box_2()
     pop()
 }
 
+//Screen_0, next button
+function next_button()
+{
+    push()
+    const left = next.button_left
+    const right = next.button_left + next.button_width + 200
+    const top = next.button_top 
+    const bottom = next.button_top + next.button_height 
+
+    const within_x = mouseX > left && mouseX < right
+    const within_y = mouseY > top && mouseY < bottom
+    next.mouseIsOver = within_x && within_y
+
+    let fill_colors = 220
+    if(next.mouseIsOver)
+    {
+        if(mouseIsPressed)
+        {
+            fill_colors = 0
+        }
+        else
+        {
+            fill_colors = 100
+            
+        }
+        fill(fill_colors)
+    }
+    noStroke()
+    translate(next.button_left, next.button_top )
+    rect(0, 0, next.button_width, next.button_height)
+    pop()
+}
+
 function mousePressed()
 {
     if(door.button_mouseIsOver)
@@ -300,6 +363,15 @@ function mousePressed()
         {
             case MAIN_MENU:
                 CurrentScreen = GAME_SCREEN
+            break
+        }
+    }
+    if(next.mouseIsOver)
+    {
+        switch(Screen_0)
+        {
+            case GAME_SCREEN:
+                Screen_0 = GAME_SCREEN_1
             break
         }
     }
