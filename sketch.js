@@ -259,6 +259,9 @@ function draw()
                 rect(width/2 + 270 , 550, 250, 20)
                 pop()
             
+                ball.draw()
+                ball.update()
+
                 //door
                 push()
                 noStroke()
@@ -270,8 +273,6 @@ function draw()
                 rect(width/2 + 270, 800, 250, 20)
                 pop()
             
-                ball.draw()
-                ball.update()
             }
             break
     }
