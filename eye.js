@@ -1,4 +1,9 @@
 
+// Name       : Hyunjun Lee
+// Assignment : Final Project - Make a Game
+// Course     : CS099
+// Spring 2021
+
 class Eye
 {
     constructor(starting_x,starting_y)

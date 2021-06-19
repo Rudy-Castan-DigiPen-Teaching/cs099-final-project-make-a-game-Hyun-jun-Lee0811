@@ -94,6 +94,16 @@ function setup()
     {
         E.push(new particle())
     }
+
+    ball = new Ball(mouseX,mouseY)
+    wall = new Wall(width*1/3, 720, 20, 320)
+    wall1 = new Wall(width*2/3, 720, 20, 320)
+    wall2 = new Wall(width/2 , 550, 250, 20)
+    wall3 = new Wall(width/2 - 270 , 550, 250, 20)
+    wall4 = new Wall(width/2 +270 , 550, 250, 20)
+    door1 = new Wall(width/2 , 800, 250, 20)
+    door2 = new Wall(width/2 - 270 , 800, 250, 20)
+    door3 = new Wall(width/2 + 270, 800, 250, 20)
 }
 
 
@@ -218,7 +228,50 @@ function draw()
     {
         case GAME_SCREEN_1:
             {
-                background(0)
+                background( '#483D8B' )
+
+                push()
+                fill('#FAEBD7')
+                rect(width/2, 700, width, 280)
+                pop()
+            
+                textSize(40)
+                text('Room_A', 50, 700)
+                text('Room_B', 325, 700)
+                text('Room_C', 595, 700)
+            
+            
+                wall.draw()
+                wall1.draw()
+                wall2.draw()
+                wall3.draw()
+                wall4.draw()
+                door1.draw()
+                door2.draw()
+                door3.draw()
+            
+                //Room
+                push()
+                noStroke()
+                fill('brown')
+                rect(width/2 - 270 , 550, 250, 20)
+                rect(width/2 , 550, 250, 20)
+                rect(width/2 + 270 , 550, 250, 20)
+                pop()
+            
+                //door
+                push()
+                noStroke()
+                fill('#5F9EA0')
+                rect(width/2 , 800, 250, 20)
+                fill('#FAFAD2')
+                rect(width/2 - 270 , 800, 250, 20)
+                fill('#000080')
+                rect(width/2 + 270, 800, 250, 20)
+                pop()
+            
+                ball.draw()
+                ball.update()
             }
             break
     }

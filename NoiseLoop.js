@@ -1,4 +1,9 @@
 
+// Name       : Hyunjun Lee
+// Assignment : Final Project - Make a Game
+// Course     : CS099
+// Spring 2021
+
 class NoiseLoop{
     constructor(d,min,max){
       this.d = d
