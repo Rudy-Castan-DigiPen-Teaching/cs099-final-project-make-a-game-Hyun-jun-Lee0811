@@ -44,6 +44,9 @@ var next =
 let CurrentScreen = MAIN_MENU
 let Screen_0 = GAME_SCREEN
 let Screen_1 = GAME_SCREEN_1
+let Screen_2 = GAME_SCREEN_1_1
+let Screen_3 = GAME_SCREEN_1_2
+let Screen_4 = GAME_SCREEN_1_3
 
 //MAIN_MENU
 let img1
@@ -99,7 +102,7 @@ function setup()
     wall = new Wall(width*1/3, 720, 20, 320)
     wall1 = new Wall(width*2/3, 720, 20, 320)
     wall2 = new Wall(width/2 , 550, 250, 20)
-    wall3 = new Wall(width/2 - 270 , 550, 250, 20)
+    wall3 = new Wall(width/2 - 280 , 550, 250, 20)
     wall4 = new Wall(width/2 +270 , 550, 250, 20)
     door1 = new Wall(width/2 , 800, 250, 20)
     door2 = new Wall(width/2 - 270 , 800, 250, 20)
@@ -276,6 +279,25 @@ function draw()
             }
             break
     }
+    switch(Screen_1)
+    {
+        case GAME_SCREEN_1_1:
+        {
+           background(0)     
+        }
+        break
+        case GAME_SCREEN_1_2:
+        {
+            background('#5F9EA0') 
+            circle(width/2, height/2, 100)   
+        }
+        break
+        case GAME_SCREEN_1_3:
+        {
+            background('#7FFF00')     
+        }
+        break
+    }
 }
 
 
@@ -436,6 +458,36 @@ function mousePressed()
     }
 }
 
+function keyPressed()
+{
+    if(keyCode === 71)
+    {
+        switch(Screen_1)
+        {
+            case GAME_SCREEN_1:
+                Screen_1 = GAME_SCREEN_1_1
+            break
+        }
+    }
+    if(keyCode === 70)
+    {
+        switch(Screen_1)
+        {
+            case GAME_SCREEN_1:
+                Screen_1 = GAME_SCREEN_1_2
+            break
+        }
+    }
+    if(keyCode === 74)
+    {
+        switch(Screen_1)
+        {
+            case GAME_SCREEN_1:
+                Screen_1 = GAME_SCREEN_1_3
+            break
+        }
+    }
+}
 
 //face
 function IsMouseOnFace(face)
@@ -492,7 +544,7 @@ function IsMouseOnFace(face)
     } 
     else
     {
-        emotion = ANGRY
+        emotion = SHOCKED
     }
     return emotion;
   }
