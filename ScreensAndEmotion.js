@@ -7,5 +7,5 @@ const GAME_SCREEN_1_3 = 5
 
 
 
-const SHOCKED = 10;
-const ANGRY = 11;
+const DEVIL_MESSAGE = 10;
+const SCREEN = 11;

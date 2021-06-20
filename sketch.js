@@ -62,6 +62,7 @@ let img10
 let img11
 let img12
 let img13
+let img14
 
 let backgroundMusic
 
@@ -96,6 +97,7 @@ function setup()
     img11 = loadImage('image/devil.png')
     img12 = loadImage('image/castle.png')
     img13 = loadImage('image/background.png')
+    img14 = loadImage('image/moon.png')
 
     backgroundMusic.loop()
 
@@ -527,7 +529,7 @@ function IsMouseOnFace(face)
   
     switch (emotion)
     {
-      case SHOCKED:
+      case DEVIL_MESSAGE:
           background('#191970')
           image(img13, 450, 470, -900,-800)
 
@@ -537,6 +539,7 @@ function IsMouseOnFace(face)
           rect(-330, -285, 570, 240)
           pop()
 
+          image(img14, -350, -350, 100, 100)
           image(img11, -250, -250, 300, 400)
           image(img12, 0, -400, 450, 600)
 
@@ -553,7 +556,7 @@ function IsMouseOnFace(face)
           text('The princess will be',-235, 195)
           text('my wife!',-95, 270)
         break;
-      case ANGRY:
+      case SCREEN:
         push()
         noStroke()
         fill('#808080')
@@ -573,14 +576,14 @@ function IsMouseOnFace(face)
     var emotion;
     if (IsMouseOnFace(face))
     {
-      emotion = SHOCKED
+      emotion = DEVIL_MESSAGE
     } else if(IsMouseInsideCanvas())
     {
-      emotion = ANGRY
+      emotion = SCREEN
     } 
     else
     {
-        emotion = SHOCKED
+        emotion = DEVIL_MESSAGE
     }
-    return emotion;
+    return emotion
   }
