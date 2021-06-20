@@ -79,6 +79,7 @@ function preload()
 function setup()
 {
     createCanvas( 800, 800 );
+    //MAIN_MENU
     img1 = loadImage('image/gear.png')
     img2 = loadImage('image/clip.png')
     img3 = loadImage('image/mouth.png')
@@ -91,6 +92,8 @@ function setup()
     img10 = loadImage('image/stain1.png')
 
     backgroundMusic.loop()
+
+    //SCREEN_0
     eyes = new Eye(500, height/2)
 
     for(let i = 0; i < M; ++i)
@@ -98,6 +101,7 @@ function setup()
         E.push(new particle())
     }
 
+    //Screen_1
     ball = new Ball(mouseX,mouseY)
     wall = new Wall(width*1/3, 720, 20, 320)
     wall1 = new Wall(width*2/3, 720, 20, 320)
@@ -300,7 +304,7 @@ function draw()
     }
 }
 
-
+//MAIN_MENU
 function start_button()
 {
     push()
@@ -334,7 +338,7 @@ function start_button()
     pop()
 }
 
-//Box at the bottom right.
+//Box at the bottom right.MAIN_MENU
 function box_1()
 {
     push()
@@ -366,7 +370,7 @@ function box_1()
     pop()
 }
 
-//Box at the bottom right.
+//Box at the bottom right.MAIN_MENU
 function box_2()
 {
     push()
@@ -433,6 +437,7 @@ function next_button()
 
 function mousePressed()
 {
+    //MAIN_MENU
     if(door.button_mouseIsOver)
     {
         switch(CurrentScreen)
@@ -452,6 +457,7 @@ function mousePressed()
         }
     }
 
+    //Screen_0
     for(let i = 0; i < M; ++i)
     {
         E.push(new particle(width/2+90, height/2+130))
@@ -460,6 +466,7 @@ function mousePressed()
 
 function keyPressed()
 {
+    //Screen_1
     if(keyCode === 71)
     {
         switch(Screen_1)
@@ -489,7 +496,7 @@ function keyPressed()
     }
 }
 
-//face
+//MAIN_MENU
 function IsMouseOnFace(face)
   {
     let dx = mouseX - face.x;
@@ -497,14 +504,14 @@ function IsMouseOnFace(face)
     let distance_squared = dx * dx + dy * dy;
     return distance_squared <= face.radius * face.radius;
   }
-  
+  //MAIN_MENU
   function IsMouseInsideCanvas()
   {
     let is_inside_width = mouseX >= 0 && mouseX < width;
     let is_inside_height = mouseY >= 0 && mouseY < height;
     return is_inside_width && is_inside_height;
   }
-  
+  //MAIN_MENU
   function DrawFaceWithEmotion(face, emotion)
   {
     push();
@@ -531,7 +538,7 @@ function IsMouseOnFace(face)
     }
     pop();
   }
-  
+  //MAIN_MENU
   function DetermineEmotion(face)
   {
     var emotion;
