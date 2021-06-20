@@ -59,6 +59,9 @@ let img7
 let img8
 let img9
 let img10
+let img11
+let img12
+let img13
 
 let backgroundMusic
 
@@ -90,6 +93,9 @@ function setup()
     img8 = loadImage('image/hand2.png')
     img9 = loadImage('image/stain.png')
     img10 = loadImage('image/stain1.png')
+    img11 = loadImage('image/devil.png')
+    img12 = loadImage('image/castle.png')
+    img13 = loadImage('image/background.png')
 
     backgroundMusic.loop()
 
@@ -141,8 +147,6 @@ function draw()
                 radius: 64
             }
 
-            let emotion1 = DetermineEmotion(face1)
-            DrawFaceWithEmotion(face1, emotion1)
             
             push()
             noStroke()
@@ -176,6 +180,10 @@ function draw()
             image(img10, 470, 630, 50, 50)
             image(img1, 700, 703, 100,)
             image(img2, 701, 602, 100,)
+
+            let emotion1 = DetermineEmotion(face1)
+            DrawFaceWithEmotion(face1, emotion1)
+
         }
         break
         case GAME_SCREEN:
@@ -520,9 +528,30 @@ function IsMouseOnFace(face)
     switch (emotion)
     {
       case SHOCKED:
-          stroke('black')
-          textSize(20)
-          text('Hello',-200, -200)
+          background('#191970')
+          image(img13, 450, 470, -900,-800)
+
+          push()
+          noStroke()
+          fill('#191970')
+          rect(-330, -285, 570, 240)
+          pop()
+
+          image(img11, -250, -250, 300, 400)
+          image(img12, 0, -400, 450, 600)
+
+          push()
+          noStroke()
+          fill('brown')
+          rect(-295, 100, 600, 250)
+          fill('#2F4F4F')
+          rect(-280, 115, 570, 220)
+          pop()
+
+          fill('white')
+          textSize(50)
+          text('The princess will be',-235, 195)
+          text('my wife!',-95, 270)
         break;
       case ANGRY:
         push()
@@ -544,10 +573,10 @@ function IsMouseOnFace(face)
     var emotion;
     if (IsMouseOnFace(face))
     {
-      emotion = SHOCKED;
+      emotion = SHOCKED
     } else if(IsMouseInsideCanvas())
     {
-      emotion = ANGRY;
+      emotion = ANGRY
     } 
     else
     {
