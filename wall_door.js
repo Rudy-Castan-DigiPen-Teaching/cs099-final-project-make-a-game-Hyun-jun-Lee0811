@@ -6,10 +6,10 @@
 
 class Ball
 {
-    constructor(starting_x, starting_y)
+    constructor()
     {
-        this.x = starting_x
-        this.y = starting_y
+        this.x = width/2
+        this.y = 100
         this.xSpeed = 5
         this.ySpeed = 5
         this.CircleSize = 50

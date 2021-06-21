@@ -47,6 +47,7 @@ let Screen_1 = GAME_SCREEN_1
 let Screen_2 = GAME_SCREEN_1_1
 let Screen_3 = GAME_SCREEN_1_2
 let Screen_4 = GAME_SCREEN_1_3
+let Screen_5 = GAME_SCREEN_1_3_Room3
 
 //MAIN_MENU
 let img1
@@ -74,6 +75,12 @@ const M = 100
 
 //SCREEN_0
 let tear = 600
+
+//SCREEN_4
+let fire = []
+let ghost = []
+let number = 0
+
 
 function preload()
 {
@@ -110,7 +117,7 @@ function setup()
     }
 
     //Screen_1
-    ball = new Ball(mouseX,mouseY)
+    ball = new Ball()
     wall = new Wall(width*1/3, 720, 20, 320)
     wall1 = new Wall(width*2/3, 720, 20, 320)
     wall2 = new Wall(width/2 , 550, 250, 20)
@@ -119,6 +126,23 @@ function setup()
     door1 = new Wall(width/2 , 800, 250, 20)
     door2 = new Wall(width/2 - 270 , 800, 250, 20)
     door3 = new Wall(width/2 + 270, 800, 250, 20)
+
+    //SCREEN_4
+    for (let f = 0; f < 10; ++f)
+    {
+      fire[f] = new Fire (random(width), random(height-100))
+    }
+    
+    for (let g = 0; g < 10; ++g)
+    {
+      ghost[g] = new Ghost (random(width), random(height-100))
+    }
+  
+    warrior = new Warrior()
+    gate = new Barrier(800, 90, 20, 120)
+    barrier_1 = new Barrier(width/2 + 110 , 600, 700, 20)
+    barrier_2 = new Barrier(width/2 - 110 , 400, 700, 20)
+    barrier_3 = new Barrier(width/2 + 110 , 200, 700, 20)
 }
 
 
@@ -267,6 +291,36 @@ function draw()
                 door2.draw()
                 door3.draw()
             
+                //Arrow_1
+                push()
+                stroke(0)
+                strokeWeight(10)
+                translate(-90, 130)
+                line(200, 200, 200, 350)
+                line(150, 300, 200, 350)
+                line(250, 300, 200, 350)
+                pop()
+
+                //Arrow_2
+                push()
+                stroke(0)
+                strokeWeight(10)
+                translate(190, 120)
+                line(200, 200, 200, 350)
+                line(150, 300, 200, 350)
+                line(250, 300, 200, 350)
+                pop()
+
+                //Arrow_3
+                push()
+                stroke(0)
+                strokeWeight(10)
+                translate(470, 120)
+                line(200, 200, 200, 350)
+                line(150, 300, 200, 350)
+                line(250, 300, 200, 350)
+                pop()
+
                 //Room
                 push()
                 noStroke()
@@ -308,7 +362,66 @@ function draw()
         break
         case GAME_SCREEN_1_3:
         {
-            background('#7FFF00')     
+            background('#483D8B');
+            push()
+            noStroke()
+            fill('red')
+            rect(400, 400, 300, 800)
+            pop()
+
+            push()
+            stroke('#FFB6C1')
+            strokeWeight(10)
+            translate(195, 400)
+            line(100, 300, 300, 300)
+            line(100, 300, 150, 350)
+            line(100, 300, 150, 250)
+            pop()
+          
+            push()
+            stroke('#FFB6C1')
+            strokeWeight(10)
+            translate(195, -200)
+            line(100, 300, 300, 300)
+            line(300, 300, 250, 350)
+            line(300, 300, 250, 250)
+            pop()
+            
+            for (let f = 0; f < 10; ++f)
+            {
+              fire[f].draw()
+              fire[f].update()
+              fire[f].contact()
+            }
+          
+            for (let g = 0; g < 10; ++g)
+            {
+              ghost[g].draw()
+              ghost[g].update()
+              ghost[g].contact()
+            }
+            
+            gate.draw()
+          
+            warrior.draw()
+            warrior.update()
+            warrior.origin()
+            barrier_1.draw()
+            barrier_2.draw()
+            barrier_3.draw()
+            
+            push()
+            fill('#FF1493')
+            rect(800, 90, 20, 120)
+            pop()
+        }
+        break
+    }
+    switch(Screen_4)
+    {
+        case GAME_SCREEN_1_3_Room3:
+        {
+            background('#BDB76B')
         }
         break
     }
@@ -501,6 +614,15 @@ function keyPressed()
         {
             case GAME_SCREEN_1:
                 Screen_1 = GAME_SCREEN_1_3
+            break
+        }
+    }
+    if(keyCode === 86)
+    {
+        switch(Screen_4)
+        {
+            case GAME_SCREEN_1_3:
+                Screen_4 = GAME_SCREEN_1_3_Room3
             break
         }
     }
