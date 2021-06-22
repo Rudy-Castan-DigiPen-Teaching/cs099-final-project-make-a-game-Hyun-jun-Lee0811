@@ -1,4 +1,8 @@
 
+// Name       : Hyunjun Lee
+// Assignment : Final Project - Make a Game
+// Course     : CS099
+// Spring 2021
 
 class Warrior
 {
@@ -39,8 +43,8 @@ class Warrior
   {
     if (this.y < 0)
     {
-        number++
         this.y = height-30
+        number++
     }
     
     if (number > 1)

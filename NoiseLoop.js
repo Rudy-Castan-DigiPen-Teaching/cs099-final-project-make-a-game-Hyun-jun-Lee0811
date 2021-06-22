@@ -4,8 +4,10 @@
 // Course     : CS099
 // Spring 2021
 
-class NoiseLoop{
-    constructor(d,min,max){
+class NoiseLoop
+{
+    constructor(d,min,max)
+    {
       this.d = d
       this.min = min
       this.max = max
@@ -13,14 +15,17 @@ class NoiseLoop{
       this.y = random(1000)
       this.a = 0
     }
-    Get(){
+    
+    Get()
+    {
       let xoff = map(cos(this.a),-1,1,this.x, this.x - this.d)
       let yoff = map(sin(this.a),-1,1,this.y, this.y - this.d)
       let r = noise(xoff,yoff)
       return map(r,0,1,this.min,this.max)
     }
   
-  Set(a){
-    this.a = a
-  }
+    Set(a)
+    {
+      this.a = a
+    }
   }
