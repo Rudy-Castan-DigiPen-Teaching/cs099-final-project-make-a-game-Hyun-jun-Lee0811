@@ -362,7 +362,7 @@ function draw()
         break
         case GAME_SCREEN_1_3:
         {
-            background('#483D8B');
+            background('#483D8B')
             push()
             noStroke()
             fill('red')

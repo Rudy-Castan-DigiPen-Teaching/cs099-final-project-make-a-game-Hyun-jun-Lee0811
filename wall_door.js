@@ -195,7 +195,7 @@ class Ball
                 this.y = this.y - 10
                 this.x = this.x 
                 textSize(150)
-                text('Click F', 190, height/2 - 50)
+                text('Click F', 190, height/2 - 130)
             }
         
         //door2
@@ -208,7 +208,7 @@ class Ball
                 this.y = this.y - 10
                 this.x = this.x
                 textSize(150)
-                text('Click G', 190, height/2 - 50)
+                text('Click G', 190, height/2 - 130)
             }
         //door3
         if(door3.x -125 < this.x
@@ -220,7 +220,7 @@ class Ball
                 this.y = this.y - 10
                 this.x = this.x
                 textSize(150)
-                text('Click J', 190, height/2 - 50)
+                text('Click J', 190, height/2 - 130)
             }
     }
 }
