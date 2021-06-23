@@ -18,9 +18,6 @@ class Ball
 
     update()
     {
-
-
-
         if(keyIsDown(RIGHT_ARROW))
         {
             this.x += 3
@@ -194,6 +191,14 @@ class Ball
             {
                 this.y = this.y - 10
                 this.x = this.x 
+                push()
+                translate(135, 20)
+                noStroke()
+                fill(0)
+                rect(295, 200, 520, 250)
+                fill('white')
+                rect(295, 200, 490, 220)
+                pop()
                 textSize(150)
                 text('Click F', 190, height/2 - 130)
             }
@@ -207,9 +212,18 @@ class Ball
             {
                 this.y = this.y - 10
                 this.x = this.x
+                push()
+                translate(155, 20)
+                noStroke()
+                fill(0)
+                rect(295, 200, 520, 250)
+                fill('white')
+                rect(295, 200, 490, 220)
+                pop()
                 textSize(150)
                 text('Click G', 190, height/2 - 130)
             }
+            
         //door3
         if(door3.x -125 < this.x
             && door3.x + 125 > this.x
@@ -219,6 +233,14 @@ class Ball
             {
                 this.y = this.y - 10
                 this.x = this.x
+                push()
+                translate(135, 20)
+                noStroke()
+                fill(0)
+                rect(295, 200, 520, 250)
+                fill('white')
+                rect(295, 200, 490, 220)
+                pop()
                 textSize(150)
                 text('Click J', 190, height/2 - 130)
             }

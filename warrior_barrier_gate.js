@@ -75,6 +75,16 @@ class Warrior
         {
           this.y = this.y 
           this.x = this.x - 10
+
+          push()
+          translate(155, 20)
+          noStroke()
+          fill(0)
+          rect(295, 200, 520, 250)
+          fill('white')
+          rect(295, 200, 490, 220)
+          pop()
+
           textSize(150)
           text('Click V', 190, height/2 - 50)
         }

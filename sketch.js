@@ -48,6 +48,8 @@ let Screen_2 = GAME_SCREEN_1_1
 let Screen_3 = GAME_SCREEN_1_2
 let Screen_4 = GAME_SCREEN_1_3
 let Screen_5 = GAME_SCREEN_1_3_Room3
+let Screen_6 = GAME_SCREEN_1_END
+let Screen_7 = GAME_SCREEN_2_END
 
 //MAIN_MENU
 let img1
@@ -76,15 +78,30 @@ const M = 100
 //SCREEN_0
 let tear = 600
 
+//SCREEN_2
+let img18
+let img19
+let img20
+let img21
+let img22
+let img23
+let img24
+let Attack
+
+
 //SCREEN_4
 let fire = []
 let ghost = []
 let number = 0
 
+//SCREEN_6
+let img26
+
 
 function preload()
 {
-    backgroundMusic = loadSound('media/background.wav')    
+    backgroundMusic = loadSound('media/background.wav')
+    Attack = loadSound('media/attack.wav')
 }
 
 function setup()
@@ -127,6 +144,20 @@ function setup()
     door2 = new Wall(width/2 - 270 , 800, 250, 20)
     door3 = new Wall(width/2 + 270, 800, 250, 20)
 
+    //SCREEN_2
+    lava = new Lava(width/2, height)
+    warrior_1 = new Warrior_1()
+    outside_door = new Outside_door(800, 290, 20, 120)
+    transparent_wall = new Outside_door(550, 290, 20, 120)
+    meteoric_stones = new Meteoric_Stone_1()
+  
+    img18 = loadImage('image/Watchtower.png')
+    img19 = loadImage('image/Watchtower_eye.png')
+    img20 = loadImage('image/Decoration_1.png')
+    img21 = loadImage('image/Decoration_2.png')
+    img22 = loadImage('image/Decoration_3.png')
+    img23 = loadImage('image/Decoration_4.png')
+
     //SCREEN_4
     for (let f = 0; f < 10; ++f)
     {
@@ -143,8 +174,11 @@ function setup()
     barrier_1 = new Barrier(width/2 + 110 , 600, 700, 20)
     barrier_2 = new Barrier(width/2 - 110 , 400, 700, 20)
     barrier_3 = new Barrier(width/2 + 110 , 200, 700, 20)
-}
 
+    //SCREEN_6
+    img26 = loadImage('image/watchtower_scene.png')
+    
+}
 
 function draw()
 {
@@ -220,7 +254,6 @@ function draw()
             ellipse(width/2,height/2, 650, 300)
             pop()
             ellipse(width/2, height/2, 630, 290)
-            pop()
 
             let p = float( count % frame)/frame
             count += 1
@@ -251,10 +284,12 @@ function draw()
             tear = 600 + 5*cos(frameCount/15)
             pop()
 
+            push()
             textStyle(ITALIC)
             textSize(50)
             text('The princess is crying!', 140, 100)
             text('Come on rescue!', 200, 160)
+            pop()
 
             next_button()
             
@@ -265,6 +300,7 @@ function draw()
         }
         break
     }
+
     switch(Screen_0)
     {
         case GAME_SCREEN_1:
@@ -280,8 +316,7 @@ function draw()
                 text('Room_A', 50, 700)
                 text('Room_B', 325, 700)
                 text('Room_C', 595, 700)
-            
-            
+
                 wall.draw()
                 wall1.draw()
                 wall2.draw()
@@ -347,11 +382,71 @@ function draw()
             }
             break
     }
+
     switch(Screen_1)
     {
         case GAME_SCREEN_1_1:
         {
-           background(0)     
+            background('#191970')
+            image(img14, 250, 50, 100, 100)
+
+            meteoric_stones.update()
+            meteoric_stones.draw()
+          
+            push()
+            fill('red')
+            rect(width/2, 800, width, 300)
+            pop()
+          
+            //Cliff
+            quad(width, 350,
+              570, 350,
+              700, height,
+              width,height)
+            
+            rect(680, 205, 10, 310)
+          
+            push()
+            fill('gray')
+            rect(600, 100, 150, 100)
+            pop()
+          
+            image(img18, -120, 220, 350, 600)
+            image(img19, -5, 55, 110, 130)
+            image(img20, 560, 55, 80, 80)
+            image(img21, 530, 100, 40, 40)
+            image(img22, 628, 100, 40, 40)
+            image(img23, 530, 55, 40, 40)
+            image(img23, 630, 55, 40, 40)
+          
+            lava.update()
+            lava.draw()
+            outside_door.draw()
+            warrior_1.draw()
+            warrior_1.update()
+          
+            push()
+            fill('yellow')
+            rect(800, 290, 20, 120)
+            pop()
+          
+            push()
+            translate(50,120)
+            stroke('red')
+            noFill()
+            beginShape()
+          
+            for (let a = 0; a < TWO_PI; a+=0.01)
+            {
+              let t = random(50, 100)
+              let x = t * cos(a)
+              let y = t * sin(a)
+              vertex(x,y)
+            }
+          
+            endShape()
+            pop()
+            
         }
         break
         case GAME_SCREEN_1_2:
@@ -417,12 +512,71 @@ function draw()
         }
         break
     }
+
     switch(Screen_4)
     {
         case GAME_SCREEN_1_3_Room3:
         {
             background('#BDB76B')
         }
+        break
+    }
+
+    switch(Screen_2)
+    {
+        case GAME_SCREEN_1_END:
+        {
+            background('pink')
+            image(img26, 0, 0, width, height)
+           // next__1_button()
+            push()
+            textStyle(BOLD)
+            text('NEXT', 640, 740)
+            pop()
+
+            push()
+            translate(width/2-30,height/2-50)
+            fill('red')
+            beginShape()
+          
+            for (let a = 0; a < PI; a+=0.01)
+            {
+              let t = random(20, 100)
+              let x = t+550 * sin(a)
+              let y = t+150 * sin(a)
+              vertex(x,y)
+            }
+          
+            endShape()
+            pop()
+            
+            push()
+            noStroke()
+            fill('green')
+            rect(305, 674, 550, 200)
+            fill('white')
+            rect(305, 674, 520, 170)
+            pop()
+
+            push()
+            textSize(30)
+            text('The moment the warrior opened', 70, 640)
+            text('the door,', 240, 680)
+            text('he was attacked by a guard tower.',60, 720)
+            pop()
+          
+        }
+        break
+        
+    }
+
+    switch(Screen_6)
+    {
+        case GAME_SCREEN_2_END:
+            {
+                background(220)
+                circle(width/2,height/2,100)
+            }
         break
     }
 }
@@ -617,12 +771,33 @@ function keyPressed()
             break
         }
     }
+    //Screen_2
+    if(keyCode === 65)
+    {
+        switch(Screen_2)
+        {
+            case GAME_SCREEN_1_1:
+                Screen_2 = GAME_SCREEN_1_END
+            break
+        }
+    }
+    //SCREEN_4
     if(keyCode === 86)
     {
         switch(Screen_4)
         {
             case GAME_SCREEN_1_3:
                 Screen_4 = GAME_SCREEN_1_3_Room3
+            break
+        }
+    }
+    //SCREEN_6
+    if(keyCode === 32)
+    {
+        switch(Screen_6)
+        {
+            case GAME_SCREEN_1_END:
+                Screen_6 = GAME_SCREEN_2_END
             break
         }
     }
