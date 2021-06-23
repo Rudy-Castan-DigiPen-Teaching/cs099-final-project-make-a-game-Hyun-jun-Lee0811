@@ -530,8 +530,9 @@ function draw()
             image(img26, 0, 0, width, height)
            // next__1_button()
             push()
+            fill('white')
             textStyle(BOLD)
-            text('NEXT', 640, 740)
+            text('SPACE', 640, 740)
             pop()
 
             push()
@@ -575,7 +576,11 @@ function draw()
         case GAME_SCREEN_2_END:
             {
                 background(220)
-                circle(width/2,height/2,100)
+                push()
+                textSize(40)
+                text('warrior tried to enter the castle again,', 35, height/2-70)
+                text('but was attacked and killed.', 150, height/2)
+                pop()
             }
         break
     }
