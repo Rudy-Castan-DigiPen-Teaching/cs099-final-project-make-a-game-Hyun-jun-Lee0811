@@ -97,6 +97,8 @@ let number = 0
 //SCREEN_6
 let img26
 
+//SCREEN_7
+let img27
 
 function preload()
 {
@@ -178,6 +180,8 @@ function setup()
     //SCREEN_6
     img26 = loadImage('image/watchtower_scene.png')
     
+    //SCREEN_7
+    img27 = loadImage('image/blood.png')
 }
 
 function draw()
@@ -575,11 +579,15 @@ function draw()
     {
         case GAME_SCREEN_2_END:
             {
-                background(220)
+                background(0)
+
+                image(img27, 0, 0, width, height)
+
                 push()
+                fill('white')
                 textSize(40)
-                text('warrior tried to enter the castle again,', 35, height/2-70)
-                text('but was attacked and killed.', 150, height/2)
+                text('Warrior tried to enter the castle again,', 35, height/2-40)
+                text('but was attacked and killed.', 150, height/2+30)
                 pop()
             }
         break
