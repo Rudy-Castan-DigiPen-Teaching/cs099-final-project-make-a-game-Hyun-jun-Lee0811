@@ -88,6 +88,11 @@ let img23
 let img24
 let Attack
 
+//SCREEN_3
+let img28
+let img29
+let img30
+
 
 //SCREEN_4
 let fire = []
@@ -159,6 +164,11 @@ function setup()
     img21 = loadImage('image/Decoration_2.png')
     img22 = loadImage('image/Decoration_3.png')
     img23 = loadImage('image/Decoration_4.png')
+
+    //SCREEN_3
+    img28 = loadImage('image/desert.png')
+    img29 = loadImage('image/night_sky.png')
+    img30 = loadImage('image/castle_D.png')
 
     //SCREEN_4
     for (let f = 0; f < 10; ++f)
@@ -455,8 +465,66 @@ function draw()
         break
         case GAME_SCREEN_1_2:
         {
-            background('#5F9EA0') 
-            circle(width/2, height/2, 100)   
+            background(0)
+            image(img29, 0, 0, width, 650)
+            image(img30, 600, 420, 100, 100)
+            image(img28, 0, 400, width, 400)
+
+            push()
+            noStroke()
+            fill('green')
+            rect(305, 674, 550, 200)
+            fill('white')
+            rect(305, 674, 520, 170)
+            pop()  
+
+            push()
+            textSize(30)
+            text('WHAT!?!?!', 230, 640)
+            text('WHY AM I HERE?', 170, 680)
+            textSize(25)
+            text('Could it be that the door was enchanted?',60, 720)
+            pop()
+
+            push()
+            noStroke()
+            fill('#2F4F4F')
+            ellipse(700, 725, 200, 50)
+            fill('white')
+            textStyle(BOLD)
+            text('Click Q', 640, 740)
+            pop()
+
+            if(keyCode === 81)
+            {
+               push()
+               noStroke()
+               fill('white')
+               rect(305, 674, 520, 170)
+               pop()
+
+               push()
+               textSize(25)
+               text('Anyway, i have to go back to the castle!', 60, 635)
+               textSize(30)
+               text('I must rescue the princess', 100, 680)
+               text('as soon as possible.',150, 725)
+               pop()
+
+               push()
+               noStroke()
+               fill('#2F4F4F')
+               ellipse(700, 725, 200, 50)
+               fill('white')
+               textStyle(BOLD)
+               text('Click W', 640, 740)
+               pop()
+            }
+            if(keyCode === 87)
+            {
+                circle(width/2, height/2, 1000)
+            }
+          
         }
         break
         case GAME_SCREEN_1_3:
@@ -533,11 +601,14 @@ function draw()
             background('pink')
             image(img26, 0, 0, width, height)
            // next__1_button()
-            push()
-            fill('white')
-            textStyle(BOLD)
-            text('SPACE', 640, 740)
-            pop()
+           push()
+           noStroke()
+           fill('#2F4F4F')
+           ellipse(700, 725, 200, 50)
+           fill('white')
+           textStyle(BOLD)
+           text('SPACE', 640, 740)
+           pop()
 
             push()
             translate(width/2-30,height/2-50)
@@ -618,7 +689,6 @@ function start_button()
         else
         {
             fill_color = 150
-            
         }
     }
 
@@ -651,7 +721,6 @@ function box_1()
         else
         {
             fill_colors = 100
-            
         }
         fill(fill_colors)
     }
@@ -683,7 +752,6 @@ function box_2()
         else
         {
             fill_colors = 100
-            
         }
         fill(fill_colors)
     }
@@ -715,7 +783,6 @@ function next_button()
         else
         {
             fill_colors = 100
-            
         }
         fill(fill_colors)
     }
