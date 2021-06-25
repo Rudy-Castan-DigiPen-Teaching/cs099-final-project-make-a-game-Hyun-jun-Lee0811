@@ -714,7 +714,32 @@ function draw()
     {
         case GAME_SCREEN_1_3_Room3:
         {
-            background('#BDB76B')
+            image(img32, -70, 0, width+150, 700)
+            image(img31, 0,0, width, 800)
+            image(img33,200,200,450, 600)
+          
+            push()
+            noStroke()
+            fill('green')
+            rect(305, 674, 550, 200)
+            fill('white')
+            rect(305, 674, 520, 170)
+            pop()  
+          
+            push()
+            noStroke()
+            fill('#2F4F4F')
+            ellipse(700, 725, 200, 50)
+            fill('white')
+            textStyle(BOLD)
+            text('Click M', 640, 740)
+            pop()
+          
+            push()
+            textSize(30)
+            text('Is it morning?', 210, 655)
+            text('Princess please wait..', 170, 710)
+            pop()
         }
         break
     }
