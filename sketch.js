@@ -92,6 +92,11 @@ let Attack
 let img28
 let img29
 let img30
+let img31
+let img32
+let img33
+let img34
+let img35
 
 
 //SCREEN_4
@@ -169,6 +174,12 @@ function setup()
     img28 = loadImage('image/desert.png')
     img29 = loadImage('image/night_sky.png')
     img30 = loadImage('image/castle_D.png')
+    img31 = loadImage('image/castle_1.png')
+    img32 = loadImage('image/sky.png')
+    img33 = loadImage('image/hero.png')
+    img34 = loadImage('image/devil_1.png')
+    img35 = loadImage('image/black_sky.png')
+
 
     //SCREEN_4
     for (let f = 0; f < 10; ++f)
@@ -392,7 +403,6 @@ function draw()
                 fill('#000080')
                 rect(width/2 + 270, 800, 250, 20)
                 pop()
-            
             }
             break
     }
@@ -460,7 +470,65 @@ function draw()
           
             endShape()
             pop()
-            
+
+            if(keyCode === 65)
+            {
+                background('pink')
+                image(img26, 0, 0, width, height)
+               // next__1_button()
+               push()
+               noStroke()
+               fill('#2F4F4F')
+               ellipse(700, 725, 200, 50)
+               fill('white')
+               textStyle(BOLD)
+               text('SPACE', 640, 740)
+               pop()
+    
+                push()
+                translate(width/2-30,height/2-50)
+                fill('red')
+                beginShape()
+              
+                for (let a = 0; a < PI; a+=0.01)
+                {
+                  let t = random(20, 100)
+                  let x = t+550 * sin(a)
+                  let y = t+150 * sin(a)
+                  vertex(x,y)
+                }
+              
+                endShape()
+                pop()
+                
+                push()
+                noStroke()
+                fill('green')
+                rect(305, 674, 550, 200)
+                fill('white')
+                rect(305, 674, 520, 170)
+                pop()
+    
+                push()
+                textSize(30)
+                text('The moment the warrior opened', 70, 640)
+                text('the door,', 240, 680)
+                text('he was attacked by a guard tower.',60, 720)
+                pop()
+            }
+            else if( keyCode === 32)
+            {
+                background(0)
+
+                image(img27, 0, 0, width, height)
+
+                push()
+                fill('white')
+                textSize(40)
+                text('Warrior tried to enter the castle again,', 35, height/2-40)
+                text('but was attacked and killed.', 150, height/2+30)
+                pop()
+            }
         }
         break
         case GAME_SCREEN_1_2:
@@ -522,9 +590,66 @@ function draw()
             }
             if(keyCode === 87)
             {
-                circle(width/2, height/2, 1000)
+                image(img32, -70, 0, width+150, 700)
+                image(img31, 0,0, width, 800)
+                image(img33,200,200,450, 600)
+              
+                push()
+                noStroke()
+                fill('green')
+                rect(305, 674, 550, 200)
+                fill('white')
+                rect(305, 674, 520, 170)
+                pop()  
+              
+                push()
+                noStroke()
+                fill('#2F4F4F')
+                ellipse(700, 725, 200, 50)
+                fill('white')
+                textStyle(BOLD)
+                text('Click E', 640, 740)
+                pop()
+              
+                push()
+                textSize(30)
+                text('Is it morning?', 210, 655)
+                text('Princess please wait..', 170, 710)
+                pop()
             }
-          
+            if(keyCode === 69)
+            {
+                image(img35, -70, 0, width+150, 800)
+                image(img31, 0,0, width, 800)
+                image(img34, 200, 150, 450, 600)
+
+                push()
+                noStroke()
+                fill('#2F4F4F')
+                ellipse(700, 725, 200, 50)
+                fill('white')
+                textStyle(BOLD)
+                text('Click R', 640, 740)
+                pop()
+
+                push()
+                textSize(70)
+                fill('red')
+                text('HA HA HA!!!', 220, height/2 - 30)
+                textSize(60)
+                text('You will die before', 150, height/2+40)
+                text('you rescue the princess!', 60, height/2+120)
+                pop()
+            }
+            if(keyCode === 82)
+            {
+                background(0)
+                push()
+                fill('white')
+                textSize(50)
+                text('Go back to the first screen', 80, height/2-10)
+                pop()
+            }
         }
         break
         case GAME_SCREEN_1_3:
@@ -591,76 +716,6 @@ function draw()
         {
             background('#BDB76B')
         }
-        break
-    }
-
-    switch(Screen_2)
-    {
-        case GAME_SCREEN_1_END:
-        {
-            background('pink')
-            image(img26, 0, 0, width, height)
-           // next__1_button()
-           push()
-           noStroke()
-           fill('#2F4F4F')
-           ellipse(700, 725, 200, 50)
-           fill('white')
-           textStyle(BOLD)
-           text('SPACE', 640, 740)
-           pop()
-
-            push()
-            translate(width/2-30,height/2-50)
-            fill('red')
-            beginShape()
-          
-            for (let a = 0; a < PI; a+=0.01)
-            {
-              let t = random(20, 100)
-              let x = t+550 * sin(a)
-              let y = t+150 * sin(a)
-              vertex(x,y)
-            }
-          
-            endShape()
-            pop()
-            
-            push()
-            noStroke()
-            fill('green')
-            rect(305, 674, 550, 200)
-            fill('white')
-            rect(305, 674, 520, 170)
-            pop()
-
-            push()
-            textSize(30)
-            text('The moment the warrior opened', 70, 640)
-            text('the door,', 240, 680)
-            text('he was attacked by a guard tower.',60, 720)
-            pop()
-          
-        }
-        break
-        
-    }
-
-    switch(Screen_6)
-    {
-        case GAME_SCREEN_2_END:
-            {
-                background(0)
-
-                image(img27, 0, 0, width, height)
-
-                push()
-                fill('white')
-                textSize(40)
-                text('Warrior tried to enter the castle again,', 35, height/2-40)
-                text('but was attacked and killed.', 150, height/2+30)
-                pop()
-            }
         break
     }
 }
@@ -813,7 +868,6 @@ function mousePressed()
             break
         }
     }
-
     //Screen_0
     for(let i = 0; i < M; ++i)
     {
@@ -851,16 +905,6 @@ function keyPressed()
             break
         }
     }
-    //Screen_2
-    if(keyCode === 65)
-    {
-        switch(Screen_2)
-        {
-            case GAME_SCREEN_1_1:
-                Screen_2 = GAME_SCREEN_1_END
-            break
-        }
-    }
     //SCREEN_4
     if(keyCode === 86)
     {
@@ -868,16 +912,6 @@ function keyPressed()
         {
             case GAME_SCREEN_1_3:
                 Screen_4 = GAME_SCREEN_1_3_Room3
-            break
-        }
-    }
-    //SCREEN_6
-    if(keyCode === 32)
-    {
-        switch(Screen_6)
-        {
-            case GAME_SCREEN_1_END:
-                Screen_6 = GAME_SCREEN_2_END
             break
         }
     }
