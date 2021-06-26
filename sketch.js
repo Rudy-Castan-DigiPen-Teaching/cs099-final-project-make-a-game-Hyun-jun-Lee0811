@@ -70,9 +70,6 @@ let img14
 
 let backgroundMusic
 
-const frame = 60
-let count = 0
-
 let E =[]
 const M = 100
 
@@ -142,7 +139,6 @@ function setup()
     backgroundMusic.loop()
 
     //SCREEN_0
-    eyes = new Eye(500, height/2)
 
     for(let i = 0; i < M; ++i)
     {
@@ -303,10 +299,10 @@ function draw()
             pop()
             ellipse(width/2, height/2, 630, 290)
 
-            let p = float( count % frame)/frame
-            count += 1
-            eyes.draw()
-            eyes.update(p*PI)
+            push()
+            fill(0)
+            circle(width/2,height/2, 300)
+            pop()
 
             for(let particle of E)
             {
@@ -903,7 +899,7 @@ function draw()
         }
         if(keyCode === 77)
         {
-            
+
         }
     }
 }

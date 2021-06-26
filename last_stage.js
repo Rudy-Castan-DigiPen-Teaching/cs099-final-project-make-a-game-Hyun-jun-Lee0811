@@ -33,7 +33,7 @@ class Warrior_2
     }
     else if(keyIsDown(UP_ARROW))
     {
-       this.speed += this.up_arrow;
+       this.speed += this.up_arrow
     }
     if(keyCode===32)
     {
