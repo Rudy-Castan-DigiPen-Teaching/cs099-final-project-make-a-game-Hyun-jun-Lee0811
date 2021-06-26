@@ -50,6 +50,7 @@ let Screen_4 = GAME_SCREEN_1_3
 let Screen_5 = GAME_SCREEN_1_3_Room3
 let Screen_6 = GAME_SCREEN_1_END
 let Screen_7 = GAME_SCREEN_2_END
+let Screen_8 = Room_3_Story_GAME
 
 //MAIN_MENU
 let img1
@@ -197,6 +198,22 @@ function setup()
     barrier_1 = new Barrier(width/2 + 110 , 600, 700, 20)
     barrier_2 = new Barrier(width/2 - 110 , 400, 700, 20)
     barrier_3 = new Barrier(width/2 + 110 , 200, 700, 20)
+    
+    //SCREEN_5
+    warrior_2 = new Warrior_2()
+    poison_wall =  new Poison_Wall(700, 640,360)
+    poison_wall_1 = new Poison_Wall(700, 130,360)
+    poison_wall_2 = new Poison_Wall(1500, 640,520)
+    poison_wall_3 = new Poison_Wall(1500, 50,420)
+    poison_wall_4 = new Poison_Wall(2300, 505,600)
+    poison_wall_5 = new Poison_Wall(2300, -100,360)
+    poison_wall_6 = new Poison_Wall(3100, 880,360)
+    poison_wall_7 = new Poison_Wall(3100, 230,660)
+    poison_wall_8 =  new Poison_Wall(3900, 640,360)
+    poison_wall_9 = new Poison_Wall(3900, 130,360)
+    img36 = loadImage('image/flame_floor.png')
+    img37 = loadImage('image/devil_eye.png')
+    wall2 = new Poison_Wall(3900+120 , 385, 130, 20)
 
     //SCREEN_6
     img26 = loadImage('image/watchtower_scene.png')
@@ -588,7 +605,7 @@ function draw()
                text('Click W', 640, 740)
                pop()
             }
-            if(keyCode === 87)
+            else if(keyCode === 87)
             {
                 image(img32, -70, 0, width+150, 700)
                 image(img31, 0,0, width, 800)
@@ -617,7 +634,7 @@ function draw()
                 text('Princess please wait..', 170, 710)
                 pop()
             }
-            if(keyCode === 69)
+            else if(keyCode === 69)
             {
                 image(img35, -70, 0, width+150, 800)
                 image(img31, 0,0, width, 800)
@@ -641,7 +658,7 @@ function draw()
                 text('you rescue the princess!', 60, height/2+120)
                 pop()
             }
-            if(keyCode === 82)
+            else if(keyCode === 82)
             {
                 background(0)
                 push()
@@ -732,16 +749,139 @@ function draw()
             ellipse(700, 725, 200, 50)
             fill('white')
             textStyle(BOLD)
-            text('Click M', 640, 740)
+            text('Click N', 640, 740)
             pop()
           
             push()
             textSize(30)
-            text('Is it morning?', 210, 655)
-            text('Princess please wait..', 170, 710)
+            text('aaaa', 210, 655)
+            text('aaaa', 170, 710)
             pop()
+
+            if(keyCode === 78)
+            {
+                image(img32, -70, 0, width+150, 700)
+                image(img31, 0,0, width, 800)
+                image(img33,200,200,450, 600)
+              
+                push()
+                noStroke()
+                fill('green')
+                rect(305, 674, 550, 200)
+                fill('white')
+                rect(305, 674, 520, 170)
+                pop()  
+              
+                push()
+                noStroke()
+                fill('#2F4F4F')
+                ellipse(700, 725, 200, 50)
+                fill('white')
+                textStyle(BOLD)
+                text('Click B', 640, 740)
+                pop()
+              
+                push()
+                textSize(30)
+                text('bbb', 210, 655)
+                text('bbb', 170, 710)
+                pop()
+            }
+            else if(keyCode === 66)
+            {
+                image(img32, -70, 0, width+150, 700)
+                image(img31, 0,0, width, 800)
+                image(img33,200,200,450, 600)
+              
+                push()
+                noStroke()
+                fill('green')
+                rect(305, 674, 550, 200)
+                fill('white')
+                rect(305, 674, 520, 170)
+                pop()  
+              
+                push()
+                noStroke()
+                fill('#2F4F4F')
+                ellipse(700, 725, 200, 50)
+                fill('white')
+                textStyle(BOLD)
+                text('Click Z', 640, 740)
+                pop()
+              
+                push()
+                textSize(30)
+                text('cccc', 210, 655)
+                text('ccc', 170, 710)
+                pop()
+            }
+            else if(keyCode === 90)
+            {
+                image(img32, -70, 0, width+150, 700)
+                image(img31, 0,0, width, 800)
+                image(img33,200,200,450, 600)
+              
+                push()
+                noStroke()
+                fill('green')
+                rect(305, 674, 550, 200)
+                fill('white')
+                rect(305, 674, 520, 170)
+                pop()  
+              
+                push()
+                noStroke()
+                fill('#2F4F4F')
+                ellipse(700, 725, 200, 50)
+                fill('white')
+                textStyle(BOLD)
+                text('Click Y', 640, 740)
+                pop()
+              
+                push()
+                textSize(30)
+                text('DDDD', 210, 655)
+                text('DDD', 170, 710)
+                pop()
+            }
         }
         break
+    }
+    
+    switch(Screen_5)
+    {
+        case Room_3_Story_GAME:
+        {
+            background(0)
+            image(img37, 200, 150, 150, 150)
+            image(img37, 500, 150, 150, 150)
+            poison_wall.draw()
+            poison_wall.update()
+            poison_wall_1.draw()
+            poison_wall_1.update()
+            poison_wall_2.draw()
+            poison_wall_2.update()
+            poison_wall_3.draw()
+            poison_wall_3.update()
+            poison_wall_4.draw()
+            poison_wall_4.update()
+            poison_wall_5.draw()
+            poison_wall_5.update()
+            poison_wall_6.draw()
+            poison_wall_6.update()
+            poison_wall_7.draw()
+            poison_wall_7.update()
+            poison_wall_8.draw()
+            poison_wall_8.update()
+            poison_wall_9.draw()
+            poison_wall_9.update()
+            wall2.draw()
+            warrior_2.draw()
+            warrior_2.update()
+            image(img36, 0, 700, width/2, 100)
+            image(img36, width/2, 700, width/2, 100)
+        }
     }
 }
 
@@ -939,6 +1079,16 @@ function keyPressed()
                 Screen_4 = GAME_SCREEN_1_3_Room3
             break
         }
+    }
+    //SCREEN_5
+    if(keyCode === 89)
+    {
+        switch(Screen_5)
+        {
+            case GAME_SCREEN_1_3_Room3:
+                Screen_5 = Room_3_Story_GAME
+            break
+        }            
     }
 }
 
