@@ -213,7 +213,7 @@ function setup()
     poison_wall_9 = new Poison_Wall(3900, 130,360)
     img36 = loadImage('image/flame_floor.png')
     img37 = loadImage('image/devil_eye.png')
-    wall2 = new Poison_Wall(3900+120 , 385, 130, 20)
+    walll2 = new Poison_Wall(3900+120 , 385, 130, 20)
 
     //SCREEN_6
     img26 = loadImage('image/watchtower_scene.png')
@@ -605,7 +605,7 @@ function draw()
                text('Click W', 640, 740)
                pop()
             }
-            else if(keyCode === 87)
+            if(keyCode === 87)
             {
                 image(img32, -70, 0, width+150, 700)
                 image(img31, 0,0, width, 800)
@@ -634,7 +634,7 @@ function draw()
                 text('Princess please wait..', 170, 710)
                 pop()
             }
-            else if(keyCode === 69)
+            if(keyCode === 69)
             {
                 image(img35, -70, 0, width+150, 800)
                 image(img31, 0,0, width, 800)
@@ -658,7 +658,7 @@ function draw()
                 text('you rescue the princess!', 60, height/2+120)
                 pop()
             }
-            else if(keyCode === 82)
+            if(keyCode === 82)
             {
                 background(0)
                 push()
@@ -787,7 +787,7 @@ function draw()
                 text('bbb', 170, 710)
                 pop()
             }
-            else if(keyCode === 66)
+            if(keyCode === 66)
             {
                 image(img32, -70, 0, width+150, 700)
                 image(img31, 0,0, width, 800)
@@ -816,7 +816,7 @@ function draw()
                 text('ccc', 170, 710)
                 pop()
             }
-            else if(keyCode === 90)
+            if(keyCode === 90)
             {
                 image(img32, -70, 0, width+150, 700)
                 image(img31, 0,0, width, 800)
@@ -876,7 +876,7 @@ function draw()
             poison_wall_8.update()
             poison_wall_9.draw()
             poison_wall_9.update()
-            wall2.draw()
+            walll2.draw()
             warrior_2.draw()
             warrior_2.update()
             image(img36, 0, 700, width/2, 100)

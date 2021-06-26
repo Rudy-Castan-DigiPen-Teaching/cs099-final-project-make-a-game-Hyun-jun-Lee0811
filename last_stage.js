@@ -365,10 +365,10 @@ class Warrior_2
             }
 
 
-        if(wall2.y -60 < this.y
-            && wall2.y + 60 > this.y
-            && wall2.x - 10 >  this.x-25
-            && this.x +25 >= wall2.x -10
+        if(walll2.y -60 < this.y
+            && walll2.y + 60 > this.y
+            && walll2.x - 10 >  this.x-25
+            && this.x +25 >= walll2.x -10
             && this.xSpeed > 0)
             {
               this.y = this.y 
