@@ -104,6 +104,9 @@ let img35
 let fire = []
 let ghost = []
 let number = 0
+let img39
+let img40
+let img41
 
 //SCREEN_6
 let img26
@@ -198,6 +201,9 @@ function setup()
     barrier_1 = new Barrier(width/2 + 110 , 600, 700, 20)
     barrier_2 = new Barrier(width/2 - 110 , 400, 700, 20)
     barrier_3 = new Barrier(width/2 + 110 , 200, 700, 20)
+    img39 = loadImage('image/last_stage_door.png')
+    img40 = loadImage('image/the_counsel_for_the_Crown.png')
+    img41 = loadImage('image/druid.png')
     
     //SCREEN_5
     warrior_2 = new Warrior_2()
@@ -490,9 +496,10 @@ function draw()
 
             if(keyCode === 65)
             {
-                background('pink')
-                image(img26, 0, 0, width, height)
-               // next__1_button()
+               background('pink')
+               image(img26, 0, 0, width, height)
+
+               //next__1_button()
                push()
                noStroke()
                fill('#2F4F4F')
@@ -533,7 +540,7 @@ function draw()
                 text('he was attacked by a guard tower.',60, 720)
                 pop()
             }
-            else if( keyCode === 32)
+            if( keyCode === 32)
             {
                 background(0)
 
@@ -731,8 +738,10 @@ function draw()
     {
         case GAME_SCREEN_1_3_Room3:
         {
-            image(img32, -70, 0, width+150, 700)
-            image(img31, 0,0, width, 800)
+            background(0)
+            image(img39, 0, 0, width, height)
+            image(img37,360,430,30, 30)
+            image(img37,420,430,30, 30)
             image(img33,200,200,450, 600)
           
             push()
@@ -753,16 +762,18 @@ function draw()
             pop()
           
             push()
-            textSize(30)
-            text('aaaa', 210, 655)
-            text('aaaa', 170, 710)
+            textSize(40)
+            text('Who are you guys?!', 110, 680)
             pop()
 
             if(keyCode === 78)
             {
-                image(img32, -70, 0, width+150, 700)
-                image(img31, 0,0, width, 800)
-                image(img33,200,200,450, 600)
+                background(0)
+                image(img39, 0, 0, width, height)
+                image(img37,360,430,30, 30)
+                image(img37,420,430,30, 30)
+                image(img40,-50,100,450, 600)
+                image(img41,350,100,450, 600)
               
                 push()
                 noStroke()
@@ -783,15 +794,19 @@ function draw()
               
                 push()
                 textSize(30)
-                text('bbb', 210, 655)
-                text('bbb', 170, 710)
+                text('We are here to kill the devil.', 100, 635)
+                text('Save the princess while fighting', 80, 690)
+                text('the devil.', 245, 740)
                 pop()
             }
             if(keyCode === 66)
             {
-                image(img32, -70, 0, width+150, 700)
-                image(img31, 0,0, width, 800)
-                image(img33,200,200,450, 600)
+                background(0)
+                image(img39, 0, 0, width, height)
+                image(img37,360,430,30, 30)
+                image(img37,420,430,30, 30)
+                image(img40,-50,100,450, 600)
+                image(img41,350,100,450, 600)
               
                 push()
                 noStroke()
@@ -812,14 +827,17 @@ function draw()
               
                 push()
                 textSize(30)
-                text('cccc', 210, 655)
-                text('ccc', 170, 710)
+                text('And once you make a mistake', 90, 635)
+                text('there, you are die.', 170, 685)
+                text('God bless you.', 190, 740)
                 pop()
             }
             if(keyCode === 90)
             {
-                image(img32, -70, 0, width+150, 700)
-                image(img31, 0,0, width, 800)
+                background(0)
+                image(img39, 0, 0, width, height)
+                image(img37,360,430,30, 30)
+                image(img37,420,430,30, 30)
                 image(img33,200,200,450, 600)
               
                 push()
@@ -841,8 +859,9 @@ function draw()
               
                 push()
                 textSize(30)
-                text('DDDD', 210, 655)
-                text('DDD', 170, 710)
+                text('Thank you...', 220, 635)
+                text('I will definitely save her.', 130, 685)
+                text('Be sure to survive!', 180, 735)
                 pop()
             }
         }
@@ -881,6 +900,10 @@ function draw()
             warrior_2.update()
             image(img36, 0, 700, width/2, 100)
             image(img36, width/2, 700, width/2, 100)
+        }
+        if(keyCode === 77)
+        {
+            
         }
     }
 }
