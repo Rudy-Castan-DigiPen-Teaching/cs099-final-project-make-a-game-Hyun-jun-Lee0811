@@ -22,3 +22,5 @@ You can see the devil's message by placing the mouse out of the screen or in the
 
 ![2](https://user-images.githubusercontent.com/80097977/123544228-4866f680-d78d-11eb-8592-054e6b14148e.jpg)
 Of the three options, the real story is one.
+
+This prototype is a game you can play when you choose a real option.
