@@ -1430,23 +1430,23 @@ function keyPressed()
 //MAIN_MENU
 function IsMouseOnFace(face)
   {
-    let dx = mouseX - face.x;
-    let dy = mouseY - face.y;
-    let distance_squared = dx * dx + dy * dy;
-    return distance_squared <= face.radius * face.radius;
+    let dx = mouseX - face.x
+    let dy = mouseY - face.y
+    let distance_squared = dx * dx + dy * dy
+    return distance_squared <= face.radius * face.radius
   }
   //MAIN_MENU
   function IsMouseInsideCanvas()
   {
-    let is_inside_width = mouseX >= 0 && mouseX < width;
-    let is_inside_height = mouseY >= 0 && mouseY < height;
-    return is_inside_width && is_inside_height;
+    let is_inside_width = mouseX >= 0 && mouseX < width
+    let is_inside_height = mouseY >= 0 && mouseY < height
+    return is_inside_width && is_inside_height
   }
   //MAIN_MENU
   function DrawFaceWithEmotion(face, emotion)
   {
     push();
-    translate(face.x, face.y);
+    translate(face.x, face.y)
   
     switch (emotion)
     {
