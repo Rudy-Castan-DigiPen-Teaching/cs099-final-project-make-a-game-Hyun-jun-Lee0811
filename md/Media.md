@@ -112,3 +112,6 @@ https://www.mynet.com/yuzuklerin-efendisindeki-sauronun-gozu-rus-kilisesini-kizd
 
 - background.wav - https://mixkit.co/free-sound-effects/scary-woods/
 **This is the 'Horror Ambience' sound at the top.**
+
+# license
+https://mixkit.co/license/
