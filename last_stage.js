@@ -390,8 +390,6 @@ class Warrior_2
               text('Click M', 188, height/2 - 90)
               pop()
             
-              //end
-              noLoop()
             }
     }
 

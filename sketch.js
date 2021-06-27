@@ -51,6 +51,9 @@ let Screen_5 = GAME_SCREEN_1_3_Room3
 let Screen_6 = GAME_SCREEN_1_END
 let Screen_7 = GAME_SCREEN_2_END
 let Screen_8 = Room_3_Story_GAME
+let Screen_9 = LAST_SCENE
+let Screen_10 = CREDIT
+let Screen_11 = HOW_TO_PLAY_AND_STORY
 
 //MAIN_MENU
 let img1
@@ -67,6 +70,7 @@ let img11
 let img12
 let img13
 let img14
+let img48
 
 let backgroundMusic
 
@@ -84,6 +88,7 @@ let img21
 let img22
 let img23
 let img24
+
 let Attack
 
 //SCREEN_3
@@ -111,6 +116,14 @@ let img26
 //SCREEN_7
 let img27
 
+//SCREEN_8
+let img42
+let img43
+let img44
+let img45
+let img46
+let img47
+
 function preload()
 {
     backgroundMusic = loadSound('media/background.wav')
@@ -135,11 +148,11 @@ function setup()
     img12 = loadImage('image/castle.png')
     img13 = loadImage('image/background.png')
     img14 = loadImage('image/moon.png')
+    img48 = loadImage('image/arrow_keys.png')
 
     backgroundMusic.loop()
 
     //SCREEN_0
-
     for(let i = 0; i < M; ++i)
     {
         E.push(new particle())
@@ -222,6 +235,14 @@ function setup()
     
     //SCREEN_7
     img27 = loadImage('image/blood.png')
+
+    //SCREEN_8
+    img42 = loadImage('image/prison.png')
+    img43 = loadImage('image/princess.png')
+    img44 = loadImage('image/castle_gate.png')
+    img45 = loadImage('image/king.png')
+    img46 = loadImage('image/castle_inside.png')
+    img47 = loadImage('image/sunset.png')
 }
 
 function draw()
@@ -293,10 +314,12 @@ function draw()
         case GAME_SCREEN:
         {
             background('#FFEFD5')
+
             push()
             fill(0)
             ellipse(width/2,height/2, 650, 300)
             pop()
+
             ellipse(width/2, height/2, 630, 290)
 
             push()
@@ -339,10 +362,38 @@ function draw()
             
             push()
             textStyle(BOLD)
-            text('NEXT', 620, 750)
+            text('NEXT', 650, 740)
             pop()
         }
         break
+        case CREDIT:
+        {
+            background(0)
+            background(0)
+            push()
+            textSize(100)
+            fill('white')
+            text('Made by', width/2-270, height/2-100)
+            textSize(100)
+            text('Hyunjun Lee', width/2-300, height/2+100)
+            pop()
+        }
+        break
+        case HOW_TO_PLAY_AND_STORY:
+        {
+            background(0)
+            image(img48,100, 100, 300,300)
+        
+            push()
+            fill('white')
+            textSize(50)
+            text('Operation', 470, 270)
+            text('Key', 550, 350)
+            text('Story: The story is about', 120, 600)
+            text('saving a kidnapped princess.', 80, 700)
+            pop()
+
+        }
     }
 
     switch(Screen_0)
@@ -869,6 +920,15 @@ function draw()
         case Room_3_Story_GAME:
         {
             background(0)
+
+            push()
+            fill('white')
+            textSize(50)
+            text('Click SPACE', 270, 600)
+            text('Move forward a little bit.', 120, 700)
+            pop()
+            
+            push()
             image(img37, 200, 150, 150, 150)
             image(img37, 500, 150, 150, 150)
             poison_wall.draw()
@@ -896,11 +956,239 @@ function draw()
             warrior_2.update()
             image(img36, 0, 700, width/2, 100)
             image(img36, width/2, 700, width/2, 100)
-        }
-        if(keyCode === 77)
-        {
 
+            push()
+            translate(3900,0)
+            translate(100, 50)
+            textSize(80)
+            fill('#708090')
+            text('Click M', 188, height/2 - 90)
+            pop()
+            pop()
         }
+    }
+
+    switch(Screen_8)    
+    {
+        case LAST_SCENE:
+        {
+            background(220)
+            image(img42, 0, 0, width, height)
+            image(img43, 200,200,450, 500)
+
+            push()
+            noStroke()
+            fill('green')
+            rect(305, 674, 550, 200)
+            fill('white')
+            rect(305, 674, 520, 170)
+            pop()  
+          
+            push()
+            noStroke()
+            fill('#2F4F4F')
+            ellipse(700, 725, 200, 50)
+            fill('white')
+            textStyle(BOLD)
+            text('Click H', 640, 740)
+            pop()
+          
+            push()
+            textSize(30)
+            text('You are here.', 200, 635)
+            text('Thank you for coming to the rescue.', 50, 685)
+            text('Let us get out of here!', 150, 735)
+            pop()
+            if(keyCode === 72)
+            {
+                background(220)
+                image(img42, 0, 0, width, height)
+                image(img33,200,200,450, 600)
+    
+                push()
+                noStroke()
+                fill('green')
+                rect(305, 674, 550, 200)
+                fill('white')
+                rect(305, 674, 520, 170)
+                pop()  
+              
+                push()
+                noStroke()
+                fill('#2F4F4F')
+                ellipse(700, 725, 200, 50)
+                fill('white')
+                textStyle(BOLD)
+                text('Click K', 640, 740)
+                pop()
+              
+                push()
+                textSize(30)
+                text('yes!', 250, 685)
+                pop()
+            }
+            if(keyCode === 75)
+            {
+                background(220)
+                image(img44, 0, 0, width, height)
+                image(img43, 200,200,450, 500)
+
+                push()
+                noStroke()
+                fill('green')
+                rect(305, 674, 550, 200)
+                fill('white')
+                rect(305, 674, 520, 170)
+                pop()  
+              
+                push()
+                noStroke()
+                fill('#2F4F4F')
+                ellipse(700, 725, 200, 50)
+                fill('white')
+                textStyle(BOLD)
+                text('Click C', 640, 740)
+                pop()
+              
+                push()
+                textSize(30)
+                text('Father!!!', 250, 635)
+                text('Why is the king here?!?!', 150, 685)
+                text('Please enter the castle.', 150, 735)
+                pop()
+            }
+            if(keyCode === 67)
+            {
+                background(220)
+                image(img44, 0, 0, width, height)
+                image(img45, 100,150,500, 500)
+
+                push()
+                noStroke()
+                fill('green')
+                rect(305, 674, 550, 200)
+                fill('white')
+                rect(305, 674, 520, 170)
+                pop()  
+              
+                push()
+                noStroke()
+                fill('#2F4F4F')
+                ellipse(700, 725, 200, 50)
+                fill('white')
+                textStyle(BOLD)
+                text('Click T', 640, 740)
+                pop()
+              
+                push()
+                textSize(30)
+                text('I am glad you did not get hurt.', 80, 635)
+                text('Go ahead and get some rest.', 100, 685)
+                text('warrior, you did a great job.', 90, 735)
+                pop()
+            }
+            if(keyCode === 84)
+            {
+                background(220)
+                image(img44, 0, 0, width, height)
+                image(img33,200,200,450, 600)
+
+                push()
+                noStroke()
+                fill('green')
+                rect(305, 674, 550, 200)
+                fill('white')
+                rect(305, 674, 520, 170)
+                pop()  
+              
+                push()
+                noStroke()
+                fill('#2F4F4F')
+                ellipse(700, 725, 200, 50)
+                fill('white')
+                textStyle(BOLD)
+                text('Click S', 640, 740)
+                pop()
+              
+                push()
+                textSize(30)
+                text('thank you..', 230, 685)
+                pop()
+            }
+            if(keyCode === 83)
+            {
+                background(220)
+                image(img47, 0, 0, width, height+500)
+                image(img46, 0, 0, width, height)
+                image(img33,200,200,450, 600)
+
+                push()
+                noStroke()
+                fill('green')
+                rect(305, 674, 550, 200)
+                fill('white')
+                rect(305, 674, 520, 170)
+                pop()  
+              
+                push()
+                noStroke()
+                fill('#2F4F4F')
+                ellipse(700, 725, 200, 50)
+                fill('white')
+                textStyle(BOLD)
+                text('Click L', 640, 740)
+                pop()
+              
+                push()
+                textSize(30)
+                text('Princess, what are you going to', 70, 655)
+                text('do from now on?', 180, 715)
+                pop()
+            }
+            if(keyCode === 76)
+            {
+                background(220)
+                image(img47, 0, 0, width, height+500)
+                image(img46, 0, 0, width, height)
+                image(img43, 200,200,450, 500)
+
+                push()
+                noStroke()
+                fill('green')
+                rect(305, 674, 550, 200)
+                fill('white')
+                rect(305, 674, 520, 170)
+                pop()  
+              
+                push()
+                noStroke()
+                fill('#2F4F4F')
+                ellipse(700, 725, 200, 50)
+                fill('white')
+                textStyle(BOLD)
+                text('Click P', 640, 740)
+                pop()
+              
+                push()
+                textSize(30)
+                text('I am thinking of going on a trip', 70, 635)
+                text('to be stronger.', 200, 680)
+                text('Will you follow me?', 170, 725)
+                pop()
+            }
+            if(keyCode === 80)
+            {
+                background(0)
+                push()
+                textSize(250)
+                fill('white')
+                text('sure!', width/2-270, height/2)
+                textSize(100)
+                text('THE END', width/2-200, height/2+200)
+                pop()
+            }
+        }
+        break
     }
 }
 
@@ -1052,6 +1340,24 @@ function mousePressed()
             break
         }
     }
+    if(box2.mouseIsOver)
+    {
+        switch(CurrentScreen)
+        {
+            case MAIN_MENU:
+                CurrentScreen = HOW_TO_PLAY_AND_STORY
+            break
+        }
+    }
+    if(box1.mouseIsOver)
+    {
+        switch(CurrentScreen)
+        {
+            case MAIN_MENU:
+                CurrentScreen = CREDIT
+            break
+        }
+    }
     //Screen_0
     for(let i = 0; i < M; ++i)
     {
@@ -1108,6 +1414,16 @@ function keyPressed()
                 Screen_5 = Room_3_Story_GAME
             break
         }            
+    }
+    //SCREEN_8
+    if(keyCode === 77)
+    {
+        switch(Screen_8)
+        {
+            case Room_3_Story_GAME:
+                Screen_8 = LAST_SCENE
+            break
+        }
     }
 }
 
@@ -1171,9 +1487,9 @@ function IsMouseOnFace(face)
         image(img3, -45, 50, 100,100)
         image(img4, -45, -200, 100,100)
         image(img5, -45, -80, 100,100)
-        break;
+        break
     }
-    pop();
+    pop()
   }
   //MAIN_MENU
   function DetermineEmotion(face)

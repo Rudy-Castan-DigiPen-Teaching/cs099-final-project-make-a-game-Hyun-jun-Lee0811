@@ -86,7 +86,7 @@ class Warrior
           pop()
 
           textSize(150)
-          text('Click V', 190, height/2 - 50)
+          text('Click V', 190, height/2 - 150)
         }
 
     //barrier_1
