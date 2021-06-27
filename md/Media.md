@@ -106,3 +106,9 @@ https://www.mynet.com/yuzuklerin-efendisindeki-sauronun-gozu-rus-kilisesini-kizd
 
 
 # Sounds
+
+- attack.wav - https://mixkit.co/free-sound-effects/battle/
+**It's the sound of a 'Sci-fi battle laser shots' at the bottom.**
+
+- background.wav - https://mixkit.co/free-sound-effects/scary-woods/
+**This is the 'Horror Ambience' sound at the top.**
