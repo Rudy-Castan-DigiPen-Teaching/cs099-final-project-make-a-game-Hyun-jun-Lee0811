@@ -1,4 +1,6 @@
 
+
+
 # Pictures
 
 ## Image in powerpoint
@@ -106,6 +108,7 @@ https://www.mynet.com/yuzuklerin-efendisindeki-sauronun-gozu-rus-kilisesini-kizd
 
 
 # Sounds
+
 - attack.wav - https://mixkit.co/free-sound-effects/battle/
 **It's the sound of a 'Sci-fi battle laser shots' at the bottom.**
 
